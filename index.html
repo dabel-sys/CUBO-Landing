@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>CUBO Solar | SKYLVA x Sunparadise</title>
+
+    <link rel="canonical" href="https://www.skylva.com/" />
+    <meta
+      name="description"
+      content="The fusion of aluminum and light. Discover the CUBO Solar patio cover, engineered by Sunparadise and powered by SKYLVA."
+    />
+
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23121212%22/><text x=%2250%22 y=%2250%22 font-family=%22sans-serif%22 font-weight=%22300%22 font-size=%2260%22 fill=%22%23F5F5F2%22 text-anchor=%22middle%22 dy=%22.35em%22>S</text></svg>"
+    />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&family=Outfit:wght@100;200;300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Manrope", "sans-serif"],
+              display: ["Outfit", "sans-serif"],
+              // Remapped 'qurova' to use Outfit for a clean, premium look instead of neon style
+              qurova: ["Outfit", "sans-serif"],
+            },
+            colors: {
+              skylva: {
+                offwhite: "#F5F5F2",
+                stone: "#E6E6E3",
+                charcoal: "#2A2A2A",
+                matte: "#121212",
+                sand: "#D8D4CD",
+                green: "#4A5D53",
+              },
+              sunparadise: {
+                blue: "#009FE3", // Official Brand Cyan/Blue from PDF
+                dark: "#333333",
+                grey: "#F4F4F4",
+              },
+            },
+            letterSpacing: {
+              widest: ".25em",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      /* Hide scrollbar for Chrome, Safari and Opera */
+      ::-webkit-scrollbar {
+        display: none;
+      }
+
+      html {
+        /* Removing height: 100% fixes iOS address bar clipping issues */
+        width: 100%;
+        overflow-x: hidden;
+        -webkit-text-size-adjust: 100%;
+        background-color: #121212; /* Ensure overscroll area matches app theme (top) */
+        /* Disable pull-to-refresh and rubber banding on HTML to prevent conflict with Lenis */
+        overscroll-behavior-y: none;
+      }
+
+      /* Hide scrollbar for IE, Edge and Firefox */
+      body {
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+        background-color: #121212;
+        color: #f5f5f2;
+        min-height: 100vh; /* Use static viewport height to prevent resize-on-scroll stutter */
+        margin: 0;
+        padding: 0;
+
+        /* iOS Optimization: Prevents rubber-banding which fights with smooth scroll and causes black bars */
+        overscroll-behavior-y: none;
+
+        /* Optimization: Restrict touch actions to vertical pan only */
+        touch-action: pan-y;
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+
+      /* Hardware acceleration class for smoother animations on iOS */
+      .gpu-accelerated {
+        transform: translateZ(0);
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        perspective: 1000px;
+        -webkit-perspective: 1000px;
+        will-change: transform;
+      }
+
+      /* Optimize image rendering */
+      img {
+        content-visibility: auto;
+      }
+
+      /* Smooth scrolling setup for Lenis */
+      html.lenis {
+        height: auto;
+      }
+      .lenis.lenis-smooth {
+        scroll-behavior: auto;
+      }
+      .lenis.lenis-smooth [data-lenis-prevent] {
+        overscroll-behavior: contain;
+      }
+      .lenis.lenis-stopped {
+        overflow: hidden;
+      }
+      .lenis.lenis-scrolling iframe {
+        pointer-events: none;
+      }
+    </style>
+    <script type="importmap">
+      {
+        "imports": {
+          "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+          "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
+          "react/": "https://aistudiocdn.com/react@^19.2.0/",
+          "react": "https://aistudiocdn.com/react@^19.2.0",
+          "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.24",
+          "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+          "next/": "https://esm.sh/next@^16.1.6/"
+        }
+      }
+    </script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.29/dist/lenis.min.js"></script>
+    <link rel="stylesheet" href="/index.css" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
