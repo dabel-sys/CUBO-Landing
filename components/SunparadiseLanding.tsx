@@ -11,7 +11,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import { useView } from '../contexts/ViewContext';
 import { ViewState } from '../types';
 
-const SUNPARADISE_DESIGNER_URL = "https://sunparadise.skylva.com/#/?configuratorId=638959cf8742447087cec7d438fc38e1&languageCode=en&containerVersionId=0cbe731b281143a6ae89e45e9696cdb4&channelId=04c985cf6ebd48569f7d24d41eb732db";
+const SUNPARADISE_DESIGNER_URL = "https://sunparadise.skylva.com/#/codes/MYZKDBAP";
 
 // --- UTILS ---
 const smoothEase: [number, number, number, number] = [0.22, 1, 0.36, 1]; // "The Tesla Curve"
