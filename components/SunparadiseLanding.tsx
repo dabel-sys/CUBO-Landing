@@ -4,7 +4,7 @@ import { m, useScroll, useTransform, useSpring, useInView, AnimatePresence, useM
 import { 
   ArrowRight, Sun, Wind, Box, 
   ShieldCheck, Layers, 
-  Zap, Home, Car, Volume2, Check,
+  Zap, Home, Car, Check,
   Sparkles, Activity, Battery, Info, CreditCard, Leaf, Gauge
 } from 'lucide-react';
 import { useLanguage } from '../contexts/LanguageContext';
@@ -92,46 +92,19 @@ const MatrixLanguage = () => {
     );
 };
 
-const SunparadiseHeader = ({ onClick }: { onClick: () => void }) => {
-    const [hovered, setHovered] = useState(false);
-    const { t } = useLanguage();
-
+const SunparadiseHeader = () => {
     return (
-        <button 
-            onClick={onClick}
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-            className="text-left pointer-events-auto transition-all duration-300 group"
-        >
+        <div className="text-left pointer-events-auto">
             <div className="relative h-10 w-40 md:w-64 overflow-hidden">
-                <m.div 
-                    initial={{ y: 0 }}
-                    animate={{ y: hovered ? -40 : 0 }}
-                    transition={{ duration: 0.4, ease: smoothEase }}
-                    className="absolute top-0 left-0 h-full flex items-center"
-                >
+                <div className="absolute top-0 left-0 h-full flex items-center">
                     <img 
                         src="/images/sunparadise-logo.png" 
                         alt="Sunparadise" 
                         className="h-full w-auto object-contain object-left"
                     />
-                </m.div>
-                
-                <m.div 
-                    initial={{ y: 40 }}
-                    animate={{ y: hovered ? 0 : 40 }}
-                    transition={{ duration: 0.4, ease: smoothEase }}
-                    className="absolute top-0 left-0 h-full flex items-center"
-                >
-                    <div className="font-display font-bold tracking-widest uppercase text-lg leading-none whitespace-nowrap">
-                        <span className="text-white">SKYLVA</span>
-                        <span className="block text-[9px] font-mono text-sunparadise-blue mt-1.5 flex items-center gap-2">
-                            <ArrowRight size={10} className="rotate-180" /> {t.sunparadise_landing.return_home}
-                        </span>
-                    </div>
-                </m.div>
+                </div>
             </div>
-        </button>
+        </div>
     )
 }
 
@@ -140,7 +113,6 @@ const SunparadiseHeader = ({ onClick }: { onClick: () => void }) => {
 const SunparadiseLanding: React.FC = () => {
   const { setView } = useView();
   const { t } = useLanguage();
-  const [soundEnabled, setSoundEnabled] = useState(false);
 
   // Updated to use window scroll (Lenis) instead of container ref
   const { scrollYProgress } = useScroll();
@@ -157,15 +129,12 @@ const SunparadiseLanding: React.FC = () => {
       <div className="relative w-full">
           <nav className="absolute top-0 left-0 right-0 z-[90] px-4 md:px-12 pt-[max(1.5rem,env(safe-area-inset-top))] pb-6 flex justify-between items-center text-white pointer-events-none">
               <div className="pointer-events-auto">
-                <SunparadiseHeader onClick={() => setView(ViewState.LANDING)} />
+                <SunparadiseHeader />
               </div>
               <div className="flex items-center gap-3 md:gap-8 pointer-events-auto">
                   <div className="block">
                     <MatrixLanguage />
                   </div>
-                  <button onClick={() => setSoundEnabled(!soundEnabled)} className="hidden md:flex items-center gap-2 text-[10px] font-mono uppercase tracking-widest opacity-50 hover:opacity-100 transition-opacity mix-blend-difference">
-                      <Volume2 size={14} /> {soundEnabled ? t.sunparadise_landing.audio_on : t.sunparadise_landing.audio_off}
-                  </button>
                   <button 
                     onClick={() => window.open(SUNPARADISE_DESIGNER_URL, '_blank')}
                     className="bg-white text-black px-4 py-2 md:px-6 md:py-2 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-sunparadise-blue hover:text-white transition-all shadow-[0_0_20px_rgba(255,255,255,0.2)] active:scale-95"
